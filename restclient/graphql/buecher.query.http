@@ -1,0 +1,75 @@
+### Copyright (C) 2020 - present Juergen Zimmermann, Hochschule Karlsruhe
+###
+### This program is free software: you can redistribute it and/or modify
+### it under the terms of the GNU General Public License as published by
+### the Free Software Foundation, either version 3 of the License, or
+### (at your option) any later version.
+###
+### This program is distributed in the hope that it will be useful,
+### but WITHOUT ANY WARRANTY; without even the implied warranty of
+### MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+### GNU General Public License for more details.
+###
+### You should have received a copy of the GNU General Public License
+### along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+###
+### N e t z w e r k   -  V e r b i n d u n g   n o t w e n d i g
+###
+
+@url = https://localhost:3000/graphql
+#@url = https://gener-iert-12345.herokuapp.com/graphql
+
+### Suche id, modell, typ und version von allen Autos
+POST {{url}}
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+{
+  autos {
+    id
+    modell
+    typ
+    version
+  }
+}
+
+### Suche modell, typ, modellnr und version von einem Auto mit vorhandener Auto-ID
+POST {{url}}
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+{
+  auto(id: "00000000-0000-0000-0000-000000000001") {
+    modell
+    typ
+    modellnr
+    version
+  }
+}
+
+### Suche modell und typ von Autos mit vorhandenem Modell
+POST {{url}}
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+{
+  autos(modell: "Alpine") {
+    modell
+    typ
+  }
+}
+
+
+### Suche modell, typ und spezifikationen von Autos mit vorhandenem Modell
+POST {{url}}
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+{
+  autos(modell: "a") {
+    modell
+    typ
+    spezifikationen
+  }
+}

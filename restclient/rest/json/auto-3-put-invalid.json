@@ -1,0 +1,14 @@
+{
+  "_id": "00000000-0000-0000-0000-000000000003",
+  "modell": "?!",
+  "klimabilanz": 5,
+  "typ": "LIMOUSINE",
+  "marke": "MERCEDES",
+  "preis": 9999,
+  "rabatt": 99,
+  "lieferbar": true,
+  "datum": "12345-123-123",
+  "modellnr": "falsche-modellnr",
+  "homepage": "anyHomepage",
+  "spezifikationen": ["SITZHEIZUNG"]
+}

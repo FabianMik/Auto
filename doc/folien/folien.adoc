@@ -1,0 +1,73 @@
+:revealjsdir: ../../node_modules/reveal.js
+:revealjs_slideNumber: true
+:sectnums:
+
+// Copyright (C) 2020 - present Juergen Zimmermann, Hochschule Karlsruhe
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+// https://asciidoctor.org/docs/asciidoctor-revealjs
+
+= Automarkt
+
+Gruppe 3 - Johannes Lauinger, Nicki Rother, Felix Boenhardt, Fabian Mikschik
+
+== Gliederung
+
+* Node
+* Express und REST
+* GraphQL
+* Mongoose
+* JWT
+* Jest usw.
+
+== Projektaufbau
+
+* Visual Studio Code
+* RESTful Web Services
+* GraphQL
+* Dokumentation
+
+=== Tools
+
+* VS Code
+* ESLint, Prettier, Sonarqube
+* Express, Mongoose
+* MongoDB, Compass, Atlas
+* Git
+* Heroku und Buildpack
+* Jenkins und Docker
+* Prettier
+
+
+=== Programmierung
+
+* Server einschl. Listener
+* ES 2015+
+* TypeScript
+
+=== Dokumentation
+
+* AsciiDoctor mit PlantUML
+* reveal.js
+
+== RESTful Web Services
+
+* Routing mit Express
+* Request und Response können mit RESTClient visualisiert werden
+
+== GraphQL und Apollo Server
+
+* Request und Response können über den Apollo Server visualisiert werden
+

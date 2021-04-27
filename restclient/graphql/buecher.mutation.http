@@ -1,0 +1,77 @@
+### Copyright (C) 2020 - present Juergen Zimmermann, Hochschule Karlsruhe
+###
+### This program is free software: you can redistribute it and/or modify
+### it under the terms of the GNU General Public License as published by
+### the Free Software Foundation, either version 3 of the License, or
+### (at your option) any later version.
+###
+### This program is distributed in the hope that it will be useful,
+### but WITHOUT ANY WARRANTY; without even the implied warranty of
+### MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+### GNU General Public License for more details.
+###
+### You should have received a copy of the GNU General Public License
+### along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+###
+### N e t z w e r k   -  V e r b i n d u n g   n o t w e n d i g
+###
+
+@url = https://localhost:3000/graphql
+#@url = https://gener-iert-12345.herokuapp.com/graphql
+
+### Neues Auto anlegen
+POST {{url}}
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+mutation {
+  createAuto(
+    modell: "Test"
+    klimabilanz: 1
+    typ: "LIMOUSINE"
+    marke: "BMW"
+    preis: 11.1
+    rabatt: 0.011
+    lieferbar: true
+    datum: null
+    modellnr: "3-89722-583-2"
+    homepage: "http://acme.com"
+    spezifikationen: ["SITZHEIZUNG"]
+  )
+}
+
+### Vorhandenes Auto aktualisieren
+POST {{url}}
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+mutation {
+  updateAuto(
+    _id: "00000000-0000-0000-0000-000000000003",
+    modell: "Geaendert",
+    klimabilanz: 5,
+    typ: "COUPE",
+    marke: "BMW",
+    preis: 99.99,
+    rabatt: 0.099,
+    lieferbar: false,
+    datum: "2018-01-31",
+    modellnr: "3-8273-1552-2",
+    homepage: "https://acme.com",
+    spezifikationen: [
+      "SITZHEIZUNG",
+      "AUTOMATIK"
+    ],
+    version: 1
+  )
+}
+
+### Vorhandenes Auto loeschen
+POST {{url}}
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+mutation {
+  deleteAuto(id: "00000000-0000-0000-0000-000000000004")
+}

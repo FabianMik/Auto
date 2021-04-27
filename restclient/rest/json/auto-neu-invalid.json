@@ -1,0 +1,12 @@
+{
+  "modell": "?!",
+  "klimabilanz": 2,
+  "typ": "UNSICHTBAR",
+  "marke": "KEINE",
+  "preis": -1,
+  "rabatt": 0,
+  "lieferbar": true,
+  "datum": "12345-123-123",
+  "modellnr": "falsche-modellnr",
+  "homepage": "anyHomepage"
+}

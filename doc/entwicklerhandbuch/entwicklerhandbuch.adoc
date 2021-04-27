@@ -1,0 +1,98 @@
+// Copyright (C) 2019 - present Juergen Zimmermann, Hochschule Karlsruhe
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+= Entwicklerhandbuch
+Jürgen Zimmermann <Juergen.Zimmermann@HS-Karlsruhe.de>
+:doctype: book
+:toc: left
+:sectanchors:
+:sectlinks:
+:sectnums:
+:source-highlighter: coderay
+:icons: font
+// :kroki-server-url: https://kroki.io
+
+// https://github.com/asciidoctor/asciidoctorj
+// https://github.com/asciidoctor/asciidoctor-diagram
+// http://de.plantuml.com/classes.html
+// http://de.plantuml.com/component.html
+// https://github.com/odrotbohm/asciidoctor-plantuml
+
+IMPORTANT: Copyright (C) 2020 - present Jürgen Zimmermann, Hochschule Karlsruhe. +
+           Free use of this software is granted under the terms of the
+           GNU General Public License (GPL) v3. +
+           For the full text of the license, see the http://www.gnu.org/licenses/gpl-3.0.html[license] file.
+
+== Der Applikationsserver
+
+=== Der Applikationsserver im Überblick
+
+Als Kunde auf dem Automarkt hat man die Möglichkeit, ohne vorherige Anmeldung, ein Auto und die dazugehörigen Eigenschaften sich anzeigen zu lassen. Des Weiteren kann der Kunde sich Binärdateien zum Auto herunterladen.
+Als Admin hat man zudem die Berechtigungen, Autos anzulegen, zu verändern und zu löschen. Außerdem kann dieser noch Binärdateien hochladen.
+
+.Use Cases
+[plantuml,use-cases,svg]
+----
+include::use-cases.puml[]
+----
+
+Der REST-Client kommuniziert mit dem Router. Dieser nimmt den Request entgegen und übergibt diesen an die Handler Functions, welche den Request entweder an den AutoHandler oder AutoFileHandler delegieren. Der AutoHandler ruft den AutoService auf, welcher zum Einen die Funktion sendMail() aufruft, wodurch über nodemailer eine Mail im Mailserver versendet wird. Zum Anderen ruft der AutoService Mongoose auf, welches das Objekt in der Collection Auto anlegt. Der AutoFileHandler ruft den AutoFileService auf, welcher über Mongoose ein Auto-Objekt in der Collection abspeichert.
+Außerdem kann über MongoDB und dem Native Driver ein Objekt aus GridFS ausgelesen und bei einem GET-Request zurückgegeben werden.
+
+.Komponentendiagramm
+[plantuml,komponenten,svg]
+----
+include::komponenten.puml[]
+----
+
+=== Die REST-Schnittstelle
+
+App fungiert als Router, welche Router Functions wie express() oder Handler Funtctions aufruft. Die Handler Functions kommunizieren mit der Klasse AutoHandler, welche sowohl die Entity AutoData als auch AutoService nutzt.
+
+.Handler für die REST-Schnittstelle
+[plantuml,AutoHandler,svg]
+----
+include::AutoHandler.puml[]
+----
+
+=== Der Anwendungskern
+
+Die Klasse AutoService nutzt im Verzeichnis Entity das Interface AutoData, sowie die Funktion validateAuto(), welche die Werte auf Richtigkeit kontrolliert, als auch AutoModel, welches in Objekt erstellt. Zudem nutzt AutoService im Verzeichnis shared sendMail(), um eine Mail an den FakeSMTP-Server zu senden.
+
+.Anwendungskern mit Mongoose
+[plantuml,AutoService,svg]
+----
+include::AutoService.puml[]
+----
+
+=== Interface für Entities und das Mongoose-Model
+
+Die Entität Auto besteht aus diesen Attributen, von welchen AutoArt und Koch Enums sind. AutoModel ruft validateAuto() auf, sowie die Klasse Schema und die Funktion model() aus dem Mongoose Package.
+
+.Entity, Model und Schema
+[plantuml,rezept,svg]
+----
+include::rezept.puml[]
+----
+
+== Programmierrichtlinien für TypeScript und JavaScript
+
+Für die Programmierung mit *TypeScript* und *JavaScript* wird folgende
+Styleguides empfehlenswert:
+
+[horizontal]
+_Microsoft_:: https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines
+_Angular_:: https://angular.io/docs/ts/latest/guide/style-guide.html
+_React_:: https://github.com/airbnb/javascript/tree/master/react
