@@ -24,7 +24,7 @@
 > _Markdown Preview Mermaid Support_ empfohlen, um UML-Diagramme in der Syntax
 > von _Mermaid_ (wie bei PlantUML) visualisieren zu können.
 >
-> Näheres zu Markdown gibt es z.B. bei [Markdown Guide](https://www.markdownguide.org/)
+> Näheres zu Markdown gibt es zum Beispiel bei [Markdown Guide](https://www.markdownguide.org/)
 >
 > Nur in den ersten beiden Vorlesungswochen kann es Unterstützung bei
 > Installationsproblemen geben.
