@@ -103,7 +103,12 @@ export const autoSchema = new Schema<AutoDocument, Model<AutoDocument>>(
         rabatt: Number,
         lieferbar: Boolean,
         datum: Date,
-        modellnr: { type: String, required: true, unique: true, immutable: true },
+        modellnr: {
+            type: String,
+            required: true,
+            unique: true,
+            immutable: true,
+        },
         homepage: String,
         spezifikationen: { type: [String], sparse: true },
         // "anything goes"

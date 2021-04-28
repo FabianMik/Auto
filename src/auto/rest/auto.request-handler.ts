@@ -30,8 +30,8 @@ import {
     AutoNotExists,
     AutoService,
     AutoServiceError,
-    ModellnrExists,
     ModellExists,
+    ModellnrExists,
     VersionInvalid,
     VersionOutdated,
 } from '../service';

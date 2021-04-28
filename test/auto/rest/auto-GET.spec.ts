@@ -60,7 +60,9 @@ describe('GET /api/autos', () => {
         autosUri = `https://${nodeConfig.host}:${address.port}${path}`;
     });
 
-    afterAll(() => { server.close() });
+    afterAll(() => {
+        server.close();
+    });
 
     test('Alle Autos', async () => {
         // given

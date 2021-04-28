@@ -33,11 +33,15 @@ switch (service) {
         break;
 
     case 'mongodb':
-        exec(`kubectl port-forward service/${service} 27017 --namespace ${namespace}`);
+        exec(
+            `kubectl port-forward service/${service} 27017 --namespace ${namespace}`,
+        );
         break;
 
     case 'mailserver':
-        exec(`kubectl port-forward service/${service} 5025 5080 --namespace ${namespace}`);
+        exec(
+            `kubectl port-forward service/${service} 5025 5080 --namespace ${namespace}`,
+        );
         break;
 
     default:

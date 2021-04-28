@@ -104,7 +104,9 @@ describe('POST /api/autos', () => {
 
     // (done?: DoneFn) => Promise<void | undefined | unknown> | void | undefined
     // close(callback?: (err?: Error) => void): this
-    afterAll(() => { server.close() });
+    afterAll(() => {
+        server.close();
+    });
 
     test('Neues Auto', async () => {
         // given
@@ -168,12 +170,20 @@ describe('POST /api/autos', () => {
 
         // then
         expect(response.status).to.be.equal(HttpStatus.BAD_REQUEST);
-        const { typ, klimabilanz, marke, datum, modellnr } = await response.json();
+        const {
+            typ,
+            klimabilanz,
+            marke,
+            datum,
+            modellnr,
+        } = await response.json();
 
         expect(typ).to.be.equal(
             'Der Typ eines Autos muss LIMOUSINE oder COUPE sein.',
         );
-        expect(klimabilanz).to.be.equal('Eine Bilanz muss zwischen 0 und 5 liegen.');
+        expect(klimabilanz).to.be.equal(
+            'Eine Bilanz muss zwischen 0 und 5 liegen.',
+        );
         expect(marke).to.be.equal(
             'Die Marke eines Autos muss BMW oder AUDI sein.',
         );

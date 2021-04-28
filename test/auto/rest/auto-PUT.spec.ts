@@ -120,7 +120,9 @@ describe('PUT /api/autos/:id', () => {
         loginUri = `${baseUri}${PATHS.login}`;
     });
 
-    afterAll(() => { server.close() });
+    afterAll(() => {
+        server.close();
+    });
 
     test('Vorhandenes Auto aendern', async () => {
         // given
@@ -195,11 +197,19 @@ describe('PUT /api/autos/:id', () => {
 
         // then
         expect(response.status).to.be.equal(HttpStatus.BAD_REQUEST);
-        const { typ, klimabilanz, marke, datum, modellnr } = await response.json();
+        const {
+            typ,
+            klimabilanz,
+            marke,
+            datum,
+            modellnr,
+        } = await response.json();
         expect(typ).to.be.equal(
             'Der Typ eines Autos muss LIMOUSINE oder COUPE sein.',
         );
-        expect(klimabilanz).to.be.equal(`Eine Bilanz muss zwischen 0 und ${MAX_RATING} liegen.`);
+        expect(klimabilanz).to.be.equal(
+            `Eine Bilanz muss zwischen 0 und ${MAX_RATING} liegen.`,
+        );
         expect(marke).to.be.equal(
             'Die Marke eines Autos muss BMW oder AUDI sein.',
         );

@@ -60,7 +60,9 @@ describe('DELETE /api/autos', () => {
         loginUri = `${baseUri}${PATHS.login}`;
     });
 
-    afterAll(() => { server.close() });
+    afterAll(() => {
+        server.close();
+    });
 
     test('Vorhandenes Auto loeschen', async () => {
         // given

@@ -79,8 +79,7 @@ export const jsonSchema: GenericJsonSchema = {
                 'Ein Automodell muss mit einem Autostaben, einer Ziffer oder _ beginnen.',
             klimabilanz: 'Eine Bilanz muss zwischen 0 und 5 liegen.',
             typ: 'Der Typ eines Autos muss LIMOUSINE oder COUPE sein.',
-            marke:
-                'Die Marke eines Autos muss BMW oder AUDI sein.',
+            marke: 'Die Marke eines Autos muss BMW oder AUDI sein.',
             preis: 'Der Preis darf nicht negativ sein.',
             rabatt: 'Der Rabatt muss ein Wert zwischen 0 und 1 sein.',
             lieferbar: '"lieferbar" muss auf true oder false gesetzt sein.',
