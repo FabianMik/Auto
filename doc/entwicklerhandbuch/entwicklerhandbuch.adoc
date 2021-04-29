@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-= Entwicklerhandbuch
+= Entwicklerhandrezept
 Jürgen Zimmermann <Juergen.Zimmermann@HS-Karlsruhe.de>
 :doctype: book
 :toc: left
@@ -39,8 +39,7 @@ IMPORTANT: Copyright (C) 2020 - present Jürgen Zimmermann, Hochschule Karlsruhe
 
 === Der Applikationsserver im Überblick
 
-Als Kunde auf dem Automarkt hat man die Möglichkeit, ohne vorherige Anmeldung, ein Auto und die dazugehörigen Eigenschaften sich anzeigen zu lassen. Des Weiteren kann der Kunde sich Binärdateien zum Auto herunterladen.
-Als Admin hat man zudem die Berechtigungen, Autos anzulegen, zu verändern und zu löschen. Außerdem kann dieser noch Binärdateien hochladen.
+bla bla
 
 .Use Cases
 [plantuml,use-cases,svg]
@@ -48,8 +47,7 @@ Als Admin hat man zudem die Berechtigungen, Autos anzulegen, zu verändern und z
 include::use-cases.puml[]
 ----
 
-Der REST-Client kommuniziert mit dem Router. Dieser nimmt den Request entgegen und übergibt diesen an die Handler Functions, welche den Request entweder an den AutoHandler oder AutoFileHandler delegieren. Der AutoHandler ruft den AutoService auf, welcher zum Einen die Funktion sendMail() aufruft, wodurch über nodemailer eine Mail im Mailserver versendet wird. Zum Anderen ruft der AutoService Mongoose auf, welches das Objekt in der Collection Auto anlegt. Der AutoFileHandler ruft den AutoFileService auf, welcher über Mongoose ein Auto-Objekt in der Collection abspeichert.
-Außerdem kann über MongoDB und dem Native Driver ein Objekt aus GridFS ausgelesen und bei einem GET-Request zurückgegeben werden.
+bla bla
 
 .Komponentendiagramm
 [plantuml,komponenten,svg]
@@ -59,27 +57,27 @@ include::komponenten.puml[]
 
 === Die REST-Schnittstelle
 
-App fungiert als Router, welche Router Functions wie express() oder Handler Funtctions aufruft. Die Handler Functions kommunizieren mit der Klasse AutoHandler, welche sowohl die Entity AutoData als auch AutoService nutzt.
+bla bla
 
 .Handler für die REST-Schnittstelle
-[plantuml,AutoHandler,svg]
+[plantuml,RezeptHandler,svg]
 ----
-include::AutoHandler.puml[]
+include::RezeptHandler.puml[]
 ----
 
 === Der Anwendungskern
 
-Die Klasse AutoService nutzt im Verzeichnis Entity das Interface AutoData, sowie die Funktion validateAuto(), welche die Werte auf Richtigkeit kontrolliert, als auch AutoModel, welches in Objekt erstellt. Zudem nutzt AutoService im Verzeichnis shared sendMail(), um eine Mail an den FakeSMTP-Server zu senden.
+bla bla
 
 .Anwendungskern mit Mongoose
-[plantuml,AutoService,svg]
+[plantuml,RezeptService,svg]
 ----
-include::AutoService.puml[]
+include::RezeptService.puml[]
 ----
 
 === Interface für Entities und das Mongoose-Model
 
-Die Entität Auto besteht aus diesen Attributen, von welchen AutoArt und Koch Enums sind. AutoModel ruft validateAuto() auf, sowie die Klasse Schema und die Funktion model() aus dem Mongoose Package.
+bla bla
 
 .Entity, Model und Schema
 [plantuml,rezept,svg]

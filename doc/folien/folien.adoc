@@ -19,9 +19,9 @@
 
 // https://asciidoctor.org/docs/asciidoctor-revealjs
 
-= Automarkt
+= Beispiel mit MEAN, REST, GraphQL, Mongoose, JWT und Jest
 
-Gruppe 3 - Johannes Lauinger, Nicki Rother, Felix Boenhardt, Fabian Mikschik
+Jürgen Zimmermann <Juergen.Zimmermann@HS-Karlsruhe.de>
 
 == Gliederung
 
@@ -32,24 +32,29 @@ Gruppe 3 - Johannes Lauinger, Nicki Rother, Felix Boenhardt, Fabian Mikschik
 * JWT
 * Jest usw.
 
-== Projektaufbau
+== Node
 
-* Visual Studio Code
-* RESTful Web Services
-* GraphQL
+* Infrastruktur
+* Entwicklungsumgebung
+* Programmierung
 * Dokumentation
 
-=== Tools
+=== Infrastruktur
 
-* VS Code
-* ESLint, Prettier, Sonarqube
-* Express, Mongoose
-* MongoDB, Compass, Atlas
-* Git
+* package.json
+* node_modules
+* npm
+* nodemon
+* ts-node
 * Heroku und Buildpack
 * Jenkins und Docker
-* Prettier
 
+=== Entwicklungsumgebung
+
+* VS Code
+* ESLint und SonarQube
+* Prettier
+* RESTclient, auch für GraphQL
 
 === Programmierung
 
@@ -61,13 +66,47 @@ Gruppe 3 - Johannes Lauinger, Nicki Rother, Felix Boenhardt, Fabian Mikschik
 
 * AsciiDoctor mit PlantUML
 * reveal.js
+* _TODO: Jekyll_
 
-== RESTful Web Services
+== Express und REST
 
-* Routing mit Express
-* Request und Response können mit RESTClient visualisiert werden
+* Router
+* Handler
 
 == GraphQL und Apollo Server
 
-* Request und Response können über den Apollo Server visualisiert werden
+* typeDefs und gql
+* resolver
 
+== Mongoose
+
+* Pattern _Active Record_
+* Document
+* JSON
+* GridFS
+
+== JWT
+
+* Private und Public Key
+* Header
+* Payload
+* Signature
+
+=== Header
+
+* alg
+* typ
+
+=== Payload
+
+* iat
+* exp
+* iss
+
+== Jest usw.
+
+* Jest
+* ts-jest
+* Chai
+* fetch
+* Istanbul

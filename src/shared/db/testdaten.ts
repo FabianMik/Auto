@@ -21,36 +21,32 @@
  * @packageDocumentation
  */
 
-import type { AutoData } from '../../auto/entity';
+import type { RezeptData } from '../../rezept/entity';
 
 /* eslint-disable @typescript-eslint/naming-convention */
 
 /**
  * Die Testdaten, um die Test-DB neu zu laden, als JSON-Array.
  */
-export const testdaten: AutoData[] = [
+export const testdaten: RezeptData[] = [
     {
         _id: '00000000-0000-0000-0000-000000000001',
-        modell: 'Alpine',
-        klimabilanz: 4,
-        typ: 'COUPE',
-        marke: 'BMW',
+        name: 'Pfannkuchen',
+        schwierigkeit: 2,
+        art: 'HAUPTMAHLZEIT',
+        koch: 'JOHANN_LAFER',
         preis: 11.1,
-        rabatt: 0.011,
-        lieferbar: true,
+        schaerfe: 0.01,
+        verfuegbar: true,
         // https://docs.mongodb.com/manual/reference/method/Date
         datum: new Date('2020-02-01'),
-        modellnr: '978-3897225831',
+        hinweis: 'Sehr lecker mit Spargel!',
         homepage: 'https://acme.at/',
-        spezifikationen: ['SITZHEIZUNG'],
-        herstellungsorte: [
+        zutaten: ['Mehl', 'Ei', 'Wasser'],
+        gewuerze: [
             {
-                ort: 'Aschaffenburg',
-                werk: 'A1',
-            },
-            {
-                ort: 'Aschaffenburg',
-                werk: 'A2',
+                gewuerz1: 'Salz',
+                gewuerz2: 'Pfeffer',
             },
         ],
         __v: 0,
@@ -59,21 +55,21 @@ export const testdaten: AutoData[] = [
     },
     {
         _id: '00000000-0000-0000-0000-000000000002',
-        modell: 'Boxer',
-        klimabilanz: 2,
-        typ: 'LIMOUSINE',
-        marke: 'AUDI',
-        preis: 22.2,
-        rabatt: 0.022,
-        lieferbar: true,
+        name: 'Spaetzle',
+        schwierigkeit: 3,
+        art: 'HAUPTMAHLZEIT',
+        koch: 'STEFFEN_HENSSLER',
+        preis: 15.2,
+        schaerfe: 0.2,
+        verfuegbar: true,
         datum: new Date('2020-02-02'),
-        modellnr: '978-3827315526',
+        hinweis: 'Am besten noch ein Braten dazu!',
         homepage: 'https://acme.biz/',
-        spezifikationen: ['AUTOMATIK'],
-        herstellungsorte: [
+        zutaten: ['Mehl', 'Ei'],
+        gewuerze: [
             {
-                ort: 'Berlin',
-                werk: 'B3',
+                gewuerz1: 'Salz',
+                gewuerz2: 'Pfeffer',
             },
         ],
         __v: 0,
@@ -82,21 +78,21 @@ export const testdaten: AutoData[] = [
     },
     {
         _id: '00000000-0000-0000-0000-000000000003',
-        modell: 'Garmisch',
-        klimabilanz: 1,
-        typ: 'COUPE',
-        marke: 'BMW',
-        preis: 33.3,
-        rabatt: 0.033,
-        lieferbar: true,
+        name: 'Waffeln',
+        schwierigkeit: 1,
+        art: 'SNACK',
+        koch: 'JOHANN_LAFER',
+        preis: 10.3,
+        schaerfe: 0.0,
+        verfuegbar: true,
         datum: new Date('2020-02-03'),
-        modellnr: '978-0201633610',
+        hinweis: 'Viel Obst und Nutella dazu!',
         homepage: 'https://acme.com/',
-        spezifikationen: ['SITZHEIZUNG', 'AUTOMATIK'],
-        herstellungsorte: [
+        zutaten: ['Mehl', 'Butter', 'Backpulver'],
+        gewuerze: [
             {
-                ort: 'Germersheim',
-                werk: 'C1',
+                gewuerz1: 'Salz',
+                gewuerz2: 'Zucker',
             },
         ],
         __v: 0,
@@ -105,21 +101,20 @@ export const testdaten: AutoData[] = [
     },
     {
         _id: '00000000-0000-0000-0000-000000000004',
-        modell: 'Diesel',
-        klimabilanz: 3,
-        typ: 'COUPE',
-        marke: 'AUDI',
-        preis: 44.4,
-        rabatt: 0.044,
-        lieferbar: true,
+        name: 'Obstsalat',
+        schwierigkeit: 1,
+        art: 'SNACK',
+        koch: 'STEFFEN_HENSSLER',
+        preis: 20.4,
+        schaerfe: 0.0,
+        verfuegbar: true,
         datum: new Date('2020-02-04'),
-        modellnr: '978-0387534046',
+        hinweis: 'Wunderbar an heissen Sommertagen',
         homepage: 'https://acme.de/',
-        spezifikationen: [],
-        herstellungsorte: [
+        zutaten: [],
+        gewuerze: [
             {
-                ort: 'Duisburg',
-                werk: 'D3',
+                gewuerz1: 'Zucker',
             },
         ],
         __v: 0,
@@ -128,21 +123,21 @@ export const testdaten: AutoData[] = [
     },
     {
         _id: '00000000-0000-0000-0000-000000000005',
-        modell: 'Erlkoenig',
-        klimabilanz: 2,
-        typ: 'LIMOUSINE',
-        marke: 'BMW',
-        preis: 55.5,
-        rabatt: 0.055,
-        lieferbar: true,
+        name: 'Pizza',
+        schwierigkeit: 4,
+        art: 'HAUPTMAHLZEIT',
+        koch: 'JOHANN_LAFER',
+        preis: 21.5,
+        schaerfe: 0.3,
+        verfuegbar: true,
         datum: new Date('2020-02-05'),
-        modellnr: '978-3824404810',
+        hinweis: 'Empfohlen wird ein Pizzastein!',
         homepage: 'https://acme.es/',
-        spezifikationen: ['AUTOMATIK'],
-        herstellungsorte: [
+        zutaten: ['Mehl', 'Hefe', 'Wasser'],
+        gewuerze: [
             {
-                ort: 'Essen',
-                werk: 'E1',
+                gewuerz1: 'Salz',
+                gewuerz2: 'Pizzagewuerz',
             },
         ],
         __v: 0,

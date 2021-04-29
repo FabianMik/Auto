@@ -22,12 +22,12 @@ actor Gast
 actor Admin
 
 rectangle kunde {
-    Gast --> (Auto suchen)
+    Gast --> (rezept suchen)
     Gast --> (Datei herunterladen)
-    Admin --> (Auto suchen)
-    Admin --> (Auto anlegen)
-    Admin --> (Auto ändern)
-    Admin --> (Auto löschen)
+    Admin --> (rezept suchen)
+    Admin --> (rezept anlegen)
+    Admin --> (rezept ändern)
+    Admin --> (rezept löschen)
     Admin --> (Datei hochladen)
     Admin --> (Datei herunterladen)
 }

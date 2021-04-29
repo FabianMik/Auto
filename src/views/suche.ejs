@@ -33,17 +33,17 @@
           <thead class="thead-default">
             <tr>
               <th>ID</th>
-              <th>Modell</th>
-              <th>Marke</th>
+              <th>Name</th>
+              <th>Koch</th>
             </tr>
           </thead>
 
           <tbody>
-            <% autos.forEach((auto) => { %>
+            <% rezepte.forEach((rezept) => { %>
             <tr>
-              <td><%= auto._id %></td>
-              <td><%= auto.modell %></td>
-              <td><%= auto.marke %></td>
+              <td><%= rezept._id %></td>
+              <td><%= rezept.name %></td>
+              <td><%= rezept.koch %></td>
             </tr>
             <% }); %>
           </tbody>

@@ -17,7 +17,7 @@
 
 /**
  * Das Modul besteht aus den Handler-Funktionen für die Authentifizierung und
- * die Autorisierung an der REST-Schnittstelle.
+ * die Gewuerzisierung an der REST-Schnittstelle.
  * @packageDocumentation
  */
 

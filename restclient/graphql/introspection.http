@@ -36,13 +36,13 @@ X-REQUEST-TYPE: GraphQL
   }
 }
 
-### Details zum Typ "Auto": Felder und deren Typen
+### Details zum Typ "rezept": Felder und deren Typen
 POST {{url}}
 Content-Type: application/json
 X-REQUEST-TYPE: GraphQL
 
 {
-  __type(name: "Auto") {
+  __type(name: "rezept") {
     name
     kind
     description
@@ -61,13 +61,13 @@ X-REQUEST-TYPE: GraphQL
   }
 }
 
-### Details zum Enum-Typ "Typ"
+### Details zum Enum-Typ "Art"
 POST {{url}}
 Content-Type: application/json
 X-REQUEST-TYPE: GraphQL
 
 {
-  __type(name: "Typ") {
+  __type(name: "Art") {
     name
     kind
     description

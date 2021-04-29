@@ -30,7 +30,7 @@ import {
     findById,
     update,
     upload,
-} from './auto/rest';
+} from './rezept/rest';
 import {
     devMode,
     enablePlayground,
@@ -44,12 +44,12 @@ import {
     validateContentType,
     validateUUID,
 } from './shared';
-import { index, neuesAuto, suche } from './auto/html';
+import { index, neuesRezept, suche } from './rezept/html';
 import { isAdmin, isAdminMitarbeiter, login, validateJwt } from './auth';
 // Einlesen von application/json im Request-Rumpf
 // Fuer multimediale Daten (Videos, Bilder, Audios): raw-body
 import { json, urlencoded } from 'body-parser';
-import { resolvers, typeDefs } from './auto/graphql';
+import { resolvers, typeDefs } from './rezept/graphql';
 import { ApolloServer } from 'apollo-server-express';
 import type { ApolloServerExpressConfig } from 'apollo-server-express';
 import bearerToken from 'express-bearer-token';
@@ -76,8 +76,8 @@ const apiPath = '/api';
  * werden in einem JSON-Objekt gebündelt.
  */
 export const PATHS = {
-    autos: `${apiPath}/autos`,
-    marken: `${apiPath}/marken`,
+    rezepte: `${apiPath}/rezepte`,
+    koche: `${apiPath}/koche`,
     login: `${apiPath}/login`,
     graphql: '/graphql',
     html: '/html',
@@ -150,28 +150,28 @@ class App {
     }
 
     private routes() {
-        this.autosRoutes();
-        this.markeRoutes();
+        this.rezepteRoutes();
+        this.kochRoutes();
         this.loginRoutes();
-        this.autoGraphqlRoutes();
+        this.rezeptGraphqlRoutes();
         this.htmlRoutes();
 
         this.app.get('*', notFound);
         this.app.use(internalError);
     }
 
-    private autosRoutes() {
+    private rezepteRoutes() {
         // vgl: Spring WebFlux.fn
         // https://expressjs.com/en/api.html#router
         // Beispiele fuer "Middleware" bei Express:
-        //  * Authentifizierung und Autorisierung
+        //  * Authentifizierung und Gewuerzisierung
         //  * Rumpf bei POST- und PUT-Requests einlesen
         //  * Logging, z.B. von Requests
         //  * Aufruf der naechsten Middleware-Funktion
         // d.h. "Middleware" ist eine Variation der Patterns
         //  * Filter (Interceptoren) und
         //  * Chain of Responsibility
-        // Ausblick zu Express 5 (z.Zt. noch als alpine-Release):
+        // Ausblick zu Express 5 (z.Zt. noch als Alpha-Release):
         //  * Router als eigenes Modul https://github.com/pillarjs/router
         //  * Zusaetzliche Syntax beim Routing
         //  * Promises statt Callbacks
@@ -206,13 +206,13 @@ class App {
             .put(`/:${idParam}/file`, validateJwt, isAdminMitarbeiter, upload)
             .get(`/:${idParam}/file`, download);
 
-        this.app.use(PATHS.autos, router);
+        this.app.use(PATHS.rezepte, router);
     }
 
-    private markeRoutes() {
+    private kochRoutes() {
         const router = Router(); // eslint-disable-line new-cap
         router.get('/', notYetImplemented);
-        this.app.use(PATHS.marken, router);
+        this.app.use(PATHS.koche, router);
     }
 
     private loginRoutes() {
@@ -227,7 +227,7 @@ class App {
         this.app.use(PATHS.login, router);
     }
 
-    private autoGraphqlRoutes() {
+    private rezeptGraphqlRoutes() {
         // https://www.apollographql.com/docs/apollo-server/data/resolvers/#passing-resolvers-to-apollo-server
         const config: ApolloServerExpressConfig = {
             typeDefs,
@@ -244,7 +244,7 @@ class App {
         const router = Router(); // eslint-disable-line new-cap
         router.route('/').get(index);
         router.route('/suche').get(suche);
-        router.route('/neues-auto').get(neuesAuto);
+        router.route('/neues-rezept').get(neuesRezept);
         this.app.use(PATHS.html, router);
 
         // Alternativen zu Pug: EJS, Handlebars, ...

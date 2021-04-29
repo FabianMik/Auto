@@ -16,7 +16,7 @@
  */
 
 /**
- * Das Modul besteht aus den Handler-Funktionen für die Autorisierung an der
+ * Das Modul besteht aus den Handler-Funktionen für die Gewuerzisierung an der
  * REST-Schnittstelle, die in der internen Klasse `AuthorizationRequestHandler`
  * gebündelt implementiert sind.
  * @packageDocumentation

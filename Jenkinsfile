@@ -175,10 +175,10 @@ pipeline {
                   //]
 
                   publishHTML target : [
-                    reportDir: 'doc/entwicklerhandbuch/html',
-                    reportFiles: 'entwicklerhandbuch.html',
-                    reportName: 'Entwicklerhandbuch',
-                    reportTitles: 'Entwicklerhandbuch'
+                    reportDir: 'doc/entwicklerhandrezept/html',
+                    reportFiles: 'entwicklerhandrezept.html',
+                    reportName: 'Entwicklerhandrezept',
+                    reportTitles: 'Entwicklerhandrezept'
                   ]
 
                   //publishHTML target : [
@@ -191,14 +191,14 @@ pipeline {
 
                 success {
                     script {
-                        if (fileExists("${env.WORKSPACE}/auto.zip")) {
-                            sh 'rm auto.zip'
+                        if (fileExists("${env.WORKSPACE}/rezept.zip")) {
+                            sh 'rm rezept.zip'
                         }
                     }
                     // https://www.jenkins.io/doc/pipeline/steps/pipeline-utility-steps/#zip-create-zip-file
-                    zip zipFile: 'auto.zip', archive: false, dir: 'dist'
-                    // jobs/auto/builds/.../archive/auto.zip
-                    archiveArtifacts 'auto.zip'
+                    zip zipFile: 'rezept.zip', archive: false, dir: 'dist'
+                    // jobs/rezept/builds/.../archive/rezept.zip
+                    archiveArtifacts 'rezept.zip'
                 }
             }
         }
@@ -207,7 +207,7 @@ pipeline {
             steps {
               echo 'TODO: Docker-Image bauen'
               // Docker-Installation und laufender Docker-Daemon erforderlich
-              // sh 'docker build --tag juergenzimmermann/auto:1.0.0 .'
+              // sh 'docker build --tag johanneslauinger/rezept:1.0.0 .'
             }
         }
 

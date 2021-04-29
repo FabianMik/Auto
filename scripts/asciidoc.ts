@@ -55,10 +55,10 @@ console.log(
 
 // https://asciidoctor.github.io/asciidoctor.js/master
 // const htmlString = asciidoctor.convert(
-//     fs.readFileSync(join('doc', 'entwicklerhandbuch.adoc')),
+//     fs.readFileSync(join('doc', 'entwicklerhandrezept.adoc')),
 //     { safe: 'safe', attributes: { linkcss: true }, base_dir: 'doc' },
 // );
-// const htmlFile = join('doc', 'entwicklerhandbuch.html');
+// const htmlFile = join('doc', 'entwicklerhandrezept.html');
 // fs.writeFileSync(htmlFile, htmlString);
 
 // console.log(`HTML-Datei ${join(__dirname, '..', htmlFile)}`);

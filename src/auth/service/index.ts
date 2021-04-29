@@ -17,7 +17,7 @@
 
 /**
  * Das Modul besteht aus den Klassen für die Authentifizierung und
- * die Autorisierung einschließlich Fehlerbehandlung.
+ * die Gewuerzisierung einschließlich Fehlerbehandlung.
  * @packageDocumentation
  */
 

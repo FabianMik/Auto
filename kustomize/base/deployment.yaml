@@ -18,34 +18,34 @@ apiVersion: apps/v1
 # https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#deployment-v1-apps
 kind: Deployment
 metadata:
-  name: auto
+  name: rezept
   labels:
-    app: auto
+    app: rezept
 spec:
   # https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#selector
   selector:
     matchLabels:
-      app: auto
+      app: rezept
   # Anzahl laufender Pods fuer das template
   replicas: 1
   # https://kubernetes.io/docs/concepts/workloads/pods/#pod-templates
   template:
     metadata:
       labels:
-        app: auto
+        app: rezept
     # Spezifikation des Pod
     spec:
-      serviceAccountName: acme-auto
+      serviceAccountName: acme-rezept
       containers:
         # https://kubernetes.io/docs/concepts/containers/images
-        - image: docker.io/juergenzimmermann/auto:1.0.0
-          name: auto
+        - image: docker.io/johanneslauinger/rezept:1.0.0
+          name: rezept
           # https://kubernetes.io/docs/tasks/inject-data-application/define-interdependent-environment-variables
           # https://opensource.com/article/19/6/introduction-kubernetes-secrets-and-configmaps
           envFrom:
             # https://kubernetes.io/docs/concepts/configuration/configmap
             - configMapRef:
-                name: auto-env
+                name: rezept-env
           env:
             - name: DB_PASS
               valueFrom:
@@ -73,10 +73,10 @@ spec:
             readOnlyRootFilesystem: true
           volumeMounts:
             - mountPath: /var/log/node
-              name: log-auto
+              name: log-rezept
       volumes:
-        - name: log-auto
+        - name: log-rezept
           # https://kubernetes.io/docs/concepts/storage/volumes/#hostpath
           hostPath:
-            path: /run/desktop/mnt/host/c/Zimmermann/volumes/auto
+            path: /run/desktop/mnt/host/c/Zimmermann/volumes/rezept
             type: Directory

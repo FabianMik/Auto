@@ -26,16 +26,16 @@ node "Funktionen mit Express" {
 }
 
 node "Klassen / objektorientiert" {
-  [AutoHandler]
-  [AutoFileHandler]
+  [RezeptHandler]
+  [RezeptFileHandler]
 
-  [AutoService]
-  [AutoFileService]
+  [RezeptService]
+  [RezeptFileService]
 }
 
 [sendMail()] as sendMail
 
-entity AutoModel
+entity RezeptModel
 
 cloud {
     [Mongoose]
@@ -50,7 +50,7 @@ cloud {
 }
 
 database "acme (MongoDB)" {
-    [Collection Auto]
+    [Collection rezept]
     [GridFS]
 }
 
@@ -61,21 +61,21 @@ node {
 
 RESTClient ~~> [Router]
 [Router] ..> [Handler Functions]
-[Handler Functions] ..> [AutoHandler]
-[Handler Functions] ..> [AutoFileHandler]
+[Handler Functions] ..> [RezeptHandler]
+[Handler Functions] ..> [RezeptFileHandler]
 
-[AutoHandler] --> [AutoService]
-[AutoFileHandler] --> [AutoFileService]
-[AutoService] ..> [AutoModel]
-[AutoFileService] ..> [AutoModel]
+[RezeptHandler] --> [RezeptService]
+[RezeptFileHandler] --> [RezeptFileService]
+[RezeptService] ..> [RezeptModel]
+[RezeptFileService] ..> [RezeptModel]
 
-[AutoModel] ~~> [Mongoose]
-[AutoFileService] ~~> [MongDB\nNative Driver]
+[RezeptModel] ~~> [Mongoose]
+[RezeptFileService] ~~> [MongDB\nNative Driver]
 [sendMail] ~~> [nodemailer]
-[Mongoose] ~~> [Collection Auto]
+[Mongoose] ~~> [Collection rezept]
 [MongDB\nNative Driver] ~~> [GridFS]
 
-[AutoService] --> [sendMail]
+[RezeptService] --> [sendMail]
 [nodemailer] ~~> [Mailserver]
 
 footer (c) Jürgen Zimmermann

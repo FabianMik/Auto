@@ -17,7 +17,7 @@
 
 /**
  * Das Modul besteht aus der Klasse {@linkcode RoleService} für die
- * Autorisierung (RBAC = role based access control).
+ * Gewuerzisierung (RBAC = role based access control).
  * @packageDocumentation
  */
 
@@ -62,7 +62,7 @@ export class RoleService {
             return;
         }
 
-        // Falls der Rollenname in Grossbuchstaben geschrieben ist, wird er
+        // Falls der Rollenname in Grossrezeptstaben geschrieben ist, wird er
         // trotzdem gefunden
         return this.findAllRoles().find(
             (r) => r.toLowerCase() === role.toLowerCase(),

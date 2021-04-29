@@ -21,7 +21,7 @@
  */
 
 /**
- * Konstante für 'content-type' und 'application/json' jeweils in Kleinbuchstaben.
+ * Konstante für 'content-type' und 'application/json' jeweils in Kleinrezeptstaben.
  */
 export const mimeConfig = {
     contentType: 'content-type',
