@@ -38,7 +38,7 @@ spec:
       serviceAccountName: acme-auto
       containers:
         # https://kubernetes.io/docs/concepts/containers/images
-        - image: docker.io/juergenzimmermann/auto:1.0.0
+        - image: docker.io/gruppedrei/auto:1.0.0
           name: auto
           # https://kubernetes.io/docs/tasks/inject-data-application/define-interdependent-environment-variables
           # https://opensource.com/article/19/6/introduction-kubernetes-secrets-and-configmaps
