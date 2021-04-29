@@ -25,3 +25,4 @@ overrides:
   - files: '*.js'
     options:
       tabWidth: 4
+endOfLine: auto
