@@ -380,7 +380,7 @@ rules:
   key-spacing: error
   keyword-spacing: error
   line-comment-position: error
-  linebreak-style: error
+  linebreak-style: ["error", "windows"]
   max-classes-per-file: error
   max-depth: error
   max-len:
